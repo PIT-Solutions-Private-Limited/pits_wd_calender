@@ -1,0 +1,25 @@
+<f:layout name="Default" />
+<f:section name="main">
+
+<f:render partial="EventCalender/includeCss" arguments="{realPath: extensionPathCss,mapValues:mapData}"/>
+<f:render partial="EventCalender/includeJs" arguments="{realPath: extensionPathJs,mapValues:mapData}"/>
+ <f:if condition="{mapData.compact}">
+ 	<f:then>
+
+ 		<div id="eventCalendarDefault"></div>
+                <input type="hidden" id="page_id" value="{uid}" name="uid"/>
+                 <div id="pits_gmap_popup">
+                    <a id="pits_gmap_popupClose">Close</a>
+                    <div id="detailed_view" style="display: none;"></div>
+               </div>
+                <div id="pits_gmap_backgroundPopup"></div>
+    
+ 	</f:then>
+ 
+ 	<f:else>
+ 		<div id="map_canvas" style="width:{mapData.map_width}px;height:{mapData.map_height}px;" class="mapCanvas"></div>
+               <f:render partial="EventCalender/eventForm" arguments="{page_id: uid}"/>
+ 	</f:else>
+ </f:if>
+
+</f:section>

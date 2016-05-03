@@ -1,0 +1,35 @@
+<f:layout name="Default" />
+<f:section name="main">
+    <div class="evt_title_head">{eventName}</div>
+
+        <div class="evt_section">
+            <div class="evt_head"> Event Name</div>
+            <div class="evt_data">{eventName}</div>
+        </div>
+         <div class="evt_section">
+            <div class="evt_head">Date And Time</div>
+            <div class="evt_data">
+               Start Date And Time :
+                <label>{eventSdate}</label>
+            </span> <BR>
+            <span>
+                End Date And Time :
+                <label>{eventEdate}</label>
+            </span>
+            </div>
+         </div>
+      
+         <div class="evt_section">
+            <div class="evt_head">Description</div>
+             <div class="evt_data">
+               {eventDesc}
+            </div>
+        </div>
+        
+          <div class="evt_section">
+            <div class="evt_head">Location</div>
+             <div class="evt_data">
+               {eventLocation}
+            </div>
+        </div>
+</f:section>

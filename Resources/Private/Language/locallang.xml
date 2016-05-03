@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the Event Calender extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_pitswdcalender_domain_model_eventcalender">EventCalender</label>
+                        <label index="tx_pitswdcalender">Calender Configuration</label>
+                        <label index="tx_pitswdcalender.calender_view_select">Select One View</label>
+                        <label index="tx_pitswdcalender.select_view">Select One View</label>
+                        <label index="tx_pitswdcalender.compact_view">Compact View</label>
+                        <label index="tx_pitswdcalender.full_edit_view">Full Edit View</label>
+                        <label index="tx_pitswdcalender.marker_view">Marker View</label>
+                        <label index="tx_pitswdcalender.normal_list_view">Normal List View</label>
+                        <label index="tx_pitswdcalender.wd_subject">Subject</label> 
+                        <label index="tx_pitswdcalender.wd_starttime">Start Time</label> 
+                        <label index="tx_pitswdcalender.wd_endtime">End Time</label> 
+                        <label index="tx_pitswdcalender.wd_lat_long">Latitude Logitude And Location</label> 
+                        <label index="tx_pitswdcalender.wd_description">Description</label> 
+                        <label index="tx_pitswdcalender.flex_title">Google Event Map Settings</label> 
+                        <label index="tx_pitswdcalender.def_map_pos">Default Google Marker Position(Eg:16.720,77.102)</label> 
+                        <label index="tx_pitswdcalender.api_key">GoogleMap API Key(Eg:AIzaSyCwuPR0c1OYyDv6UzyxcSOzJIU-782VQ6Y)</label> 
+                        <label index="tx_pitswdcalender.map_width">Set Map Width</label> 
+                        <label index="tx_pitswdcalender.map_height">Set Map Height</label> 
+                        <label index="tx_pitswdcalender.theme_options">Theme Options</label>
+                        theme_options
+		</languageKey>
+	</data>
+</T3locallang>

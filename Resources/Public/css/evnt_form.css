@@ -1,0 +1,161 @@
+
+#pits_gmap_popup ul li{list-style-type:none!important;background:none!important;padding:0 !important;}
+#pits_gmap_popup form ul{margin:0;padding:0;list-style-type:none!important;padding: 0px 0px 0px 90px}
+#pits_gmap_popup form li{margin:0;padding:6px 1% 9px 1%;clear:both;background-color:transparent;position:relative;-webkit-transition:background-color 350ms ease-out;-moz-transition:background-color 350ms ease-out;-o-transition:background-color 350ms ease-out;transition:background-color 350ms ease-out}
+#pits_gmap_popup form ul:after,form li:after,form li div:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+#pits_gmap_popup form li div{margin:0;padding:0;color:#444}
+#pits_gmap_popup form li span{margin:0 .3em 0 0;padding:0;float:left;color:#444}
+#pits_gmap_popup form li div span{margin:0;display:block;width:100%;float:left}
+#pits_gmap_popup label span,.section span,p span,.likert span{display:inline !important;float:none !important}
+#pits_gmap_popup form li div label,form li span label{margin:0;padding-top:3px;clear:both;font-size:85%;line-height:160%;color:#444;display:block}
+#pits_gmap_popup fieldset{display:block;border:none;margin:0;padding:0}
+#pits_gmap_popup label.desc,legend.desc{font-size:95%;font-weight:bold;color:#222;line-height:150%;margin:0;padding:0 0 3px 0;border:none;display:block;white-space:normal;width:100%}label.choice{display:block;cursor:pointer;font-size:100%;line-height:150%;margin:-17px 0 0 23px;padding:0 0 5px 0;color:#222;width:88%}.safari label.choice{margin-top:-16px}form.rightLabel .desc{padding-top:2px}span.symbol{font-size:120%;line-height:135%}
+
+
+#pits_gmap_popup #saveNewEvtForm{  
+    border-color:#ff3300;
+}
+#pits_gmap_popup  .evt_error{
+     border-color:#ff3300;
+     color:#DF0000;
+}
+#pits_gmap_popup #evt_sucess{
+    border-color:#ff3300;
+    color:green;
+    padding-left: 112px;
+    
+}
+
+#pits_gmap_popup br.both{
+clear:both;
+}
+#pits_gmap_backgroundPopup{
+display:none;
+position:fixed;
+_position:absolute; /* hack for internet explorer 6*/
+height:100% !important;
+width:100% !important;
+top:0;
+left:0;
+background:#000000;
+border:1px solid #cecece;
+z-index:1;
+}
+#pits_gmap_popup{
+display:none;
+position:fixed;
+_position:absolute; /* hack for internet explorer 6*/
+height:auto;
+width:39%;
+background:#FFFFFF;
+border:2px solid #cecece;
+z-index:2;
+padding:12px;
+font-size:15px;
+padding-top: 17px
+}
+#pits_gmap_popup h1{
+text-align:left;
+color:#6FA5FD;
+font-size:22px;
+font-weight:700;
+border-bottom:1px dotted #D3D3D3;
+padding-bottom:2px;
+margin-bottom:20px;
+}
+#pits_gmap_popupClose{
+/*font-size:19px;*/
+line-height:21px;
+right:2px;
+top:0px;
+position:absolute;
+color:#6fa5fd;
+/*font-weight:700;*/
+display:block;
+/*background:url("images/close.png");*/        
+}
+#pits_gmap_popup a:hover{
+    cursor:pointer  !important;
+}
+    #pits_gmap_popup #Field9{
+        height: 10em;
+        width: 391px;
+    }    
+    #pits_gmap_popup .saveNewEvtForm{
+        
+        color:white;
+        
+    }
+    #pits_gmap_popup .display_unit ul {
+         background: none repeat scroll 0 0 rgb(255, 255, 255);
+         border: 1px solid rgb(204, 204, 204);
+         box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+         text-align: left;
+        
+        
+    }
+    #pits_gmap_popup .evt_section{
+      list-style: none; 
+        
+    }
+    #pits_gmap_popup .evt_head{
+
+          font-style: inherit;
+          padding: 3px 0 2px;
+          width: 150px;
+        
+    }
+    #pits_gmap_popup .evt_data{
+         background: none repeat scroll 0 0 silver;
+         padding: 7px 6px 7px 54px;
+         width: 500px;
+    }
+     #pits_gmap_popup .evt_title_head{
+
+         background: none repeat scroll 0 0 slategrey;
+         font-style: inherit;
+         padding: 3px 0 2px;
+         text-align: center;
+         width: auto;
+        
+    }
+    .mapCanvas{
+        border-style: groove;
+    }
+    .proces_bar{
+                 display: none;
+    }
+    .pits_span{
+        
+        width:30px;
+    }
+    .contents{
+       background-color: #A5BFDD;
+       height: auto;
+       text-align: center;
+    }
+    .contents a:hover{
+         cursor:pointer  !important;
+    }
+    .contents .sub_label{
+      font-weight: bold;
+      text-decoration: underline;
+        
+    }
+    .contents .time_label{
+    background-color:#EFFF79;
+        
+    }
+    .contents .link_label{
+
+        background-color:#A5BFDD; 
+    }
+    .contents .link_label:hover{
+
+                cursor:pointer  !important;
+    }
+    .newEvent_submit{
+        padding-left: 150px !important; 
+        padding-top: 10px !important;
+        
+    }

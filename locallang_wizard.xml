@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Labels for googlemap selector</description>
+		<type>module</type>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="geoselector_title">Google Map GEO Selector</label>
+			<label index="search_address">Search address</label>
+			<label index="search_address_ok">Go!</label>
+			<label index="set_data">Save GEO data</label>
+			<label index="lat">Latitude</label>
+			<label index="lng">Longitude</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="geoselector_title">Google Map GEO Selector</label>
+			<label index="search_address">Adresse Suchen</label>
+			<label index="search_address_ok">Go!</label>
+			<label index="set_data">GEO Daten setzen</label>
+			<label index="lat">Breitengrad</label>
+			<label index="lng">Längengrad</label>
+		</languageKey>
+	</data>
+</T3locallang>

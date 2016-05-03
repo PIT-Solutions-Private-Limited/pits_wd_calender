@@ -1,0 +1,14 @@
+plugin.tx_pitswdcalender {
+	view {
+		# cat=plugin.tx_pitswdcalender/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:pits_wd_calender/Resources/Private/Templates/
+		# cat=plugin.tx_pitswdcalender/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:pits_wd_calender/Resources/Private/Partials/
+		# cat=plugin.tx_pitswdcalender/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:pits_wd_calender/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_pitswdcalender//a; type=string; label=Default storage PID
+		storagePid = 
+	}
+}

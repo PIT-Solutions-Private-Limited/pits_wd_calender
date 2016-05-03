@@ -1,0 +1,32 @@
+ <T3DataStructure>
+  <sheets>
+    <sDEF>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>Verhalten</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <switchableControllerActions>
+            <TCEforms>
+              <label>Standardaktion des Plugins</label>
+              <config>
+                <type>select</type>
+                <items>
+                   <numIndex index="0">
+                     <numIndex index="0">Listenansicht</numIndex>
+                     <numIndex index="1">MyController->list</numIndex>
+                   </numIndex>
+                   <numIndex index="1">
+                     <numIndex index="0">Einzelansicht</numIndex>
+                     <numIndex index="1">MyController->show;MyController->edit;MyController->update</numIndex>
+                   </numIndex>
+                 </items>
+              </config>
+            </TCEforms>
+          </switchableControllerActions>
+        </el>
+      </ROOT>
+    </sDEF>
+  </sheets>
+</T3DataStructure>

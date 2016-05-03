@@ -1,0 +1,61 @@
+<div id="pits_gmap_popup">
+    <a id="pits_gmap_popupClose">Close</a>
+    <div id="general_pp">
+        <div id="container" class="ltr">
+            <form id="newEvent" name="newEvent" class="wufoo topLabel page" method="post" action="">
+                     <ul> 
+                         <li>
+                          <header id="header" class="info">
+                             <h2>Create New Event</h2> <label class="desc" id="title4" for="Field4">@<span id="loc_name"></span></label>
+                          </header>
+                         <span id="evt_sucess"></span>
+                     </li>
+                    <li id="foli9">
+                        <label class="desc" id="title4" for="Field4">Event Name</label>
+                        <div>
+                            <input id="Field4" name="evt_name" class="field text medium" value="" maxlength="255" tabindex="5" /> 
+                            <label  id="evt_name" for="Field4" class="evt_error"></label>
+                        </div>
+                    </li>
+                    <li id="foli9">
+                        <label class="desc" id="title7" for="Field7">Date And Time</label>
+                        <span>
+                            <input id="datepicker_from" name="evt_sdate" type="text" class="field text" value="" size="20" maxlength="2" tabindex="15" />
+                            <label for="Field7-1">Start Date And Time</label><label id="evt_sdate" class="evt_error"></label>
+                        </span> 
+                        <span id="cal7">
+                            <span class="datepicker" id="datepicker_from_1"></span>
+                        </span>
+                        <span>
+                            <input id="datepicker_to" name="evt_edate" type="text" class="field text" value="" size="20" maxlength="2" tabindex="18" />
+                            <label for="Field8-1">End Date And Time</label><label id="evt_edate" class="evt_error"></label>
+                        </span> 
+                        <span id="cal8">
+                            <span class="datepicker" id="datepicker_to_1"></span>
+                        </span>
+                    </li>
+                    <li id="foli9">
+                        <label class="desc" id="title9" for="Field9">Description</label>
+                        <div>
+                            <textarea id="Field9" name="evt_desc"  class="field text medium" tabindex="21" onkeyup=""></textarea>
+                        </div>
+                    </li>
+                    <li id="foli9">
+                        <div>
+                            <input type="hidden" id="loc_name_field" value="" name="evt_loc"/>
+                            <input type="hidden" id="lat_log" value="" name="evt_long"/>
+                            <input type="hidden" id="lat_lat" value="" name="evt_lat"/>
+                            <input type="hidden" id="page_id" value="{page_id}" name="uid"/>
+                        </div>
+                    </li>
+                    <li class="buttons ">
+                        <div class="newEvent_submit"><input id="saveNewEvtForm" class="btTxt submit" type="button" value="Create Event"/></div>
+                    </li>
+                </ul>
+            </form> 
+        </div><!--container--> 
+    </div>
+    <div class="proces_bar">Proreccing The Data...</div>
+    <div id="detailed_view" style="display: none;"></div>
+</div>
+<div id="pits_gmap_backgroundPopup"></div>

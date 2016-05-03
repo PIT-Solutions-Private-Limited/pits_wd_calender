@@ -1,0 +1,34 @@
+plugin.tx_pitswdcalender {
+	view {
+		templateRootPath = {$plugin.tx_pitswdcalender.view.templateRootPath}
+		partialRootPath = {$plugin.tx_pitswdcalender.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_pitswdcalender.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_pitswdcalender.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+plugin.tx_pitswdcalender._CSS_DEFAULT_STYLE (
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-pits-wd-calender table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-pits-wd-calender table th {
+		font-weight:bold;
+	}
+
+	.tx-pits-wd-calender table td {
+		vertical-align:top;
+	}
+)

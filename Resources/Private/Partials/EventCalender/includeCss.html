@@ -1,0 +1,15 @@
+
+<f:if condition="{mapValues.compact}">
+ 	<f:then>
+                <link rel="stylesheet" href="{realPath}eventCalendar.css" type="text/css" media="screen" /> 
+                <link rel="stylesheet" href="{realPath}eventCalendar_theme_responsive.css" type="text/css" media="screen" />
+                <link rel="stylesheet" href="{realPath}evnt_form.css" type="text/css" media="screen" /> 
+ 	</f:then>
+ 
+ 	<f:else>
+ 		<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
+                <link rel="stylesheet" href="{realPath}evnt_form.css" type="text/css" media="screen" /> 
+                <link rel="stylesheet" href="{realPath}jquery-ui-timepicker-addon.css" type="text/css" media="screen" /> 
+ 	</f:else>
+ </f:if>
+
