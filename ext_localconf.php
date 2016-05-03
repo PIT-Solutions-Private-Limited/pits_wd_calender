@@ -1,16 +1,18 @@
 <?php
 if (!defined('TYPO3_MODE')) {
-	die ('Access denied.');
+	die('Access denied.');
 }
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,
-	'Wdcalender',
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Pits.' . $_EXTKEY,
+	'Pitswdcalender',
 	array(
-		'EventCalender' => 'list, show, new, create, edit, update, delete,compact',	
+		'EventCalender' => 'list, show, new, create, edit, update, delete,compact',
+		
 	),
+	// non-cacheable actions
 	array(
-		'EventCalender' => 'list, create, update, delete,compact',	
+		'EventCalender' => 'list, create, update, delete,compact',
+		
 	)
 );
-
-?>
