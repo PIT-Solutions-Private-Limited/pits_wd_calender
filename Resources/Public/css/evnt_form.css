@@ -6,7 +6,7 @@
 #pits_gmap_popup form li div{margin:0;padding:0;color:#444}
 #pits_gmap_popup form li span{margin:0 .3em 0 0;padding:0;float:left;color:#444}
 #pits_gmap_popup form li div span{margin:0;display:block;width:100%;float:left}
-#pits_gmap_popup label span,.section span,p span,.likert span{display:inline !important;float:none !important}
+#pits_gmap_popup label span,/*.section span,*/p span,.likert span{display:inline !important;float:none !important}
 #pits_gmap_popup form li div label,form li span label{margin:0;padding-top:3px;clear:both;font-size:85%;line-height:160%;color:#444;display:block}
 #pits_gmap_popup fieldset{display:block;border:none;margin:0;padding:0}
 #pits_gmap_popup label.desc,legend.desc{font-size:95%;font-weight:bold;color:#222;line-height:150%;margin:0;padding:0 0 3px 0;border:none;display:block;white-space:normal;width:100%}label.choice{display:block;cursor:pointer;font-size:100%;line-height:150%;margin:-17px 0 0 23px;padding:0 0 5px 0;color:#222;width:88%}.safari label.choice{margin-top:-16px}form.rightLabel .desc{padding-top:2px}span.symbol{font-size:120%;line-height:135%}

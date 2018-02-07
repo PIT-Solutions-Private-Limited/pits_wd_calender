@@ -11,6 +11,10 @@ plugin.tx_pitswdcalender {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
+	settings {
+		GoogleApiKey = {$plugin.tx_pitswdcalender.settings.GoogleApiKey}
+		DefaultGoogleMarkerPosition = {$plugin.tx_pitswdcalender.settings.DefaultGoogleMarkerPosition}
+	}
 }
 
 plugin.tx_pitswdcalender._CSS_DEFAULT_STYLE (

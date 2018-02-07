@@ -1,4 +1,5 @@
 <?php
+namespace Pits\PitsWdCalender\Domain\Model;
 /***************************************************************
  *  Copyright notice
  *
@@ -29,19 +30,20 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_PitsWdCalender_Domain_Model_EventCalender extends Tx_Extbase_DomainObject_AbstractEntity {
+class EventCalender extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+
 	public function createEvent( $eventData = array() ){
 		$lat_long = $eventData['formValues']['evt_lat'].';'.$eventData['formValues']['evt_long'].';'.$eventData['formValues']['evt_loc'];
 		$ret = array();
 		try{
 			$GLOBALS['TYPO3_DB']->store_lastBuiltQuery=1;
 			$insertArray = array( 'wd_subject' => $eventData['formValues']['evt_name'],
-'wd_starttime' => $this->js2PhpTime($eventData['formValues']['evt_sdate']), 
-'wd_endtime' => $this->js2PhpTime($eventData['formValues']['evt_edate']), 
-'pid' =>$GLOBALS['TSFE']->id,
-'tstamp' => time(),
-'wd_description' => $eventData['formValues']['evt_desc'],
-'wd_lat_long' => $lat_long,
+			'wd_starttime' => $this->js2PhpTime($eventData['formValues']['evt_sdate']), 
+			'wd_endtime' => $this->js2PhpTime($eventData['formValues']['evt_edate']), 
+			'pid' =>$GLOBALS['TSFE']->id,
+			'tstamp' => time(),
+			'wd_description' => $eventData['formValues']['evt_desc'],
+			'wd_lat_long' => $lat_long,
 			);
 			$resp= $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'tx_pitswdcalender_domain_model_eventcalender', $insertArray);
 			if($resp==FALSE){
@@ -67,13 +69,13 @@ class Tx_PitsWdCalender_Domain_Model_EventCalender extends Tx_Extbase_DomainObje
 		return $ret;
 	}
 	public function getAllEvents($pId){
-		$whereClause = 'pid='.$pId;
+		$whereClause = 'pid='.$pId.' AND deleted=0 and hidden=0 ';
 		$orderByClause = '';
 		$limitClause = '';
 		$result = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows( 'uid,pid,wd_subject,wd_starttime,wd_endtime,wd_lat_long', 'tx_pitswdcalender_domain_model_eventcalender', $whereClause, '', $orderByClause, $limitClause );
 		foreach($result as $key=>$value){
 			$result[$key]['wd_subject'] = ucwords( $value['wd_subject'] );
-$result[$key]['wd_starttime']=date('F j, Y,g:i a', $value['wd_starttime']);
+			$result[$key]['wd_starttime']=date('F j, Y,g:i a', $value['wd_starttime']);
 			$result[$key]['wd_endtime'] = date( ',F j, Y,g:i a', $value['wd_endtime']);
 			$lat_long = explode(';', $value['wd_lat_long']);
 			$lat = $lat_long[0];
@@ -92,7 +94,7 @@ $result[$key]['wd_starttime']=date('F j, Y,g:i a', $value['wd_starttime']);
 			if($value['wd_description'] == ''){
 				$result[$key]['wd_description'] = 'No Description Found!';
 			}
-$result[$key]['wd_starttime']=date('F j, Y,g:i a', $value['wd_starttime']);
+            $result[$key]['wd_starttime']=date('F j, Y,g:i a', $value['wd_starttime']);
 			$result[$key]['wd_endtime'] = date('F j, Y,g:i a', $value['wd_endtime']);
 			$location = explode(';', $value['wd_lat_long']);
 			$location_name = $location[2];
@@ -108,12 +110,13 @@ $result[$key]['wd_starttime']=date('F j, Y,g:i a', $value['wd_starttime']);
 	public function compactData(){
 		$GLOBALS['TYPO3_DB']->store_lastBuiltQuery=1;
 		try{
-			$result = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows( 'uid,pid,wd_subject,wd_starttime,wd_endtime,wd_description,wd_lat_long', 'tx_pitswdcalender_domain_model_eventcalender');
+			$whereClause = ' deleted=0 and hidden=0 ';
+			$result = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows( 'uid,pid,wd_subject,wd_starttime,wd_endtime,wd_description,wd_lat_long', 'tx_pitswdcalender_domain_model_eventcalender',$whereClause);
 			$ret = '[';
 			$separator = '';
 			foreach($result as $key=>$value){
 				$ret = $ret.$separator;
-$ret.= '{ "date": "'.($value['wd_starttime']*1000).'", "type": "'.$value['wd_subject'].'", "title": "'.$value['wd_subject'].'", "description": "'.$value['wd_description'].'", "url": "'.$value['uid'].'" }';
+            $ret.= '{ "date": "'.($value['wd_starttime']*1000).'", "type": "'.$value['wd_subject'].'", "title": "'.$value['wd_subject'].'", "description": "'.$value['wd_description'].'", "url": "'.$value['uid'].'" }';
 				$separator = ',';
 			}
 			$ret.=']';

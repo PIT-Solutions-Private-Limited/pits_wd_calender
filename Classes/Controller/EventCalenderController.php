@@ -1,4 +1,6 @@
-<?php	/***************************************************************
+<?php	
+namespace Pits\PitsWdCalender\Controller;
+/***************************************************************
  *  Copyright notice
  *
  *  (c) 2013 Abin Sabu <abin.s@pitsolutions.com>,PITS
@@ -29,33 +31,35 @@
  * GNU General Public License, version 3 or later
  *
  */
-class Tx_PitsWdCalender_Controller_EventCalenderController extends Tx_Extbase_MVC_Controller_ActionController {
+class EventCalenderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+	
 	/**
 	 * eventCalenderRepository
 	 *
-	 * @var Tx_PitsWdCalender_Domain_Repository_EventCalenderRepository
+	 * @var \Pits\PitsWdCalender\Domain\Repository\EventCalenderRepository
+	 * @inject
 	 */
 	protected $eventCalenderRepository;
 	protected $eventCalenderModel;
 
 	public function __construct(){
-		$this->eventCalenderModel = new Tx_PitsWdCalender_Domain_Model_EventCalender();
+		$this->eventCalenderModel = new \Pits\PitsWdCalender\Domain\Model\EventCalender();
 	}
 	/**
 	 * action list
 	 *
 	 * @return void
-	 * @param Tx_PitsWdCalender_Domain_Model_EventCalender
+	 * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
 	 */
 	public function listAction() {
 		$flexformValues = $this->settings;
 		$view_type = $flexformValues['view_select'];
 		$cObjData = $this->configurationManager->getContentObject();
 		$conf = array(
-'parameter' => $GLOBALS['TSFE']->id,
-'additionalParams' => '&tx_pitswdcalender_wdcalender[action]=',
-'useCashHash' => TRUE,
-'returnLast' => 'url'
+			'parameter' => $GLOBALS['TSFE']->id,
+			'additionalParams' => '&tx_pitswdcalender_wdcalender[action]=',
+			'useCashHash' => TRUE,
+			'returnLast' => 'url'
 		);
 		$url = $cObjData->typoLink('', $conf);
 		$ajax_url = $url;
@@ -92,12 +96,12 @@ class Tx_PitsWdCalender_Controller_EventCalenderController extends Tx_Extbase_MV
 		$this->view->assign('events' , html_entity_decode($events));
 		$this->view->assign('uid' , $ajax_url);
 		$this->view->assign('mapData' , $mapData);
-		$this->view->assign('extensionPathJs' , t3lib_extMgm::siteRelPath('pits_wd_calender').'Resources/Public/js/');
-		$this->view->assign('extensionPathCss' , t3lib_extMgm::siteRelPath('pits_wd_calender').'Resources/Public/css/');
+		$this->view->assign('extensionPathJs' , \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('pits_wd_calender').'Resources/Public/js/');
+		$this->view->assign('extensionPathCss' , \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('pits_wd_calender').'Resources/Public/css/');
 	}
 	/**
 	 * action show
-	 * @param Tx_PitsWdCalender_Domain_Model_EventCalender
+	 * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
 	 * @return void
 	 */
 	public function showAction() {
@@ -112,7 +116,7 @@ class Tx_PitsWdCalender_Controller_EventCalenderController extends Tx_Extbase_MV
 	}
 	/**
 	 * action new
-	 * @param Tx_PitsWdCalender_Domain_Model_EventCalender
+	 * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
 	 * @dontvalidate $newEventCalender
 	 * @return void
 	 */
@@ -123,7 +127,7 @@ class Tx_PitsWdCalender_Controller_EventCalenderController extends Tx_Extbase_MV
 	}
 	/**
 	 * action create
-	 * @param Tx_PitsWdCalender_Domain_Model_EventCalender
+	 * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
 	 * @return void
 	 */
 	public function createAction() {
@@ -133,28 +137,28 @@ class Tx_PitsWdCalender_Controller_EventCalenderController extends Tx_Extbase_MV
 	}
 	/**
 	 * action edit
-	 * @param Tx_PitsWdCalender_Domain_Model_EventCalender
+	 * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
 	 * @return void
 	 */
-	public function editAction(Tx_PitsWdCalender_Domain_Model_EventCalender $eventCalender) {
+	public function editAction(\Pits\PitsWdCalender\Domain\Model\EventCalender $eventCalender) {
 		$this->view->assign('eventCalender', $eventCalender);
 	}
 	/**
 	 * action update
-	 * @param Tx_PitsWdCalender_Domain_Model_EventCalender
+	 * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
 	 * @return void
 	 */
-	public function updateAction(Tx_PitsWdCalender_Domain_Model_EventCalender $eventCalender) {
+	public function updateAction(\Pits\PitsWdCalender\Domain\Model\EventCalender $eventCalender) {
 		$this->eventCalenderRepository->update($eventCalender);
 		$this->flashMessageContainer->add('Your EventCalender was updated.');
 		$this->redirect('list');
 	}
 	/**
 	 * action delete
-	 * @param Tx_PitsWdCalender_Domain_Model_EventCalender
+	 * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
 	 * @return void
 	 */
-	public function deleteAction(Tx_PitsWdCalender_Domain_Model_EventCalender $eventCalender) {
+	public function deleteAction(\Pits\PitsWdCalender\Domain\Model\EventCalender $eventCalender) {
 		$this->eventCalenderRepository->remove($eventCalender);
 		$this->flashMessageContainer->add('Your EventCalender was removed.');
 		$this->redirect('list');
@@ -162,11 +166,11 @@ class Tx_PitsWdCalender_Controller_EventCalenderController extends Tx_Extbase_MV
 	/**
 	 * injectEventCalenderRepository
 	 * @param
-	 * Tx_PitsWdCalender_Domain_Repository_EventCalenderRepository
+	 * \Pits\PitsWdCalender\Domain\Repository\EventCalenderRepository
 	 * $EventCalenderRepository
 	 * @return void
 	 */
-	public function injectEventCalenderRepository(Tx_PitsWdCalender_Domain_Repository_EventCalenderRepository $eventCalenderRepository) {
+	public function injectEventCalenderRepository(\Pits\PitsWdCalender\Domain\Repository\EventCalenderRepository $eventCalenderRepository) {
 		$this->eventCalenderRepository = $eventCalenderRepository;
 	}
 }

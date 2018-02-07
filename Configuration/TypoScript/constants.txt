@@ -11,4 +11,10 @@ plugin.tx_pitswdcalender {
 		# cat=plugin.tx_pitswdcalender//a; type=string; label=Default storage PID
 		storagePid = 
 	}
+	settings {
+		# cat=plugin.tx_pitswdcalender//a; type=string; label= Google Api Key
+		GoogleApiKey = 
+		# cat=plugin.tx_pitswdcalender//a; type=string; label= Default google marker position
+		DefaultGoogleMarkerPosition = 
+	}
 }

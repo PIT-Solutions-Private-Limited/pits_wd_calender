@@ -1,5 +1,5 @@
 <?php
-
+namespace Pits\PitsWdCalender\Domain\Repository;
 /***************************************************************
  *  Copyright notice
  *
@@ -32,7 +32,7 @@
  * GNU General Public License, version 3 or later
  *
  */
-class Tx_PitsWdCalender_Domain_Repository_EventCalenderRepository extends Tx_Extbase_Persistence_Repository {
+class EventCalenderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
 }
 ?>
