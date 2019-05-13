@@ -125,7 +125,6 @@ class EventCalenderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
     /**
      * action new
      * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
-     * @dontvalidate $newEventCalender
      * @return void
      */
     public function compactAction()
