@@ -109,7 +109,6 @@ class EventCalenderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      */
     public function compactData()
     {
-        $GLOBALS['TYPO3_DB']->store_lastBuiltQuery = 1;
         try {
             $query = $this->createQuery();
             $query->matching(
