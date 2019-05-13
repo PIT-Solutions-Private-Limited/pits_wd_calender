@@ -257,8 +257,8 @@
 	}
         function getWdData(Lt,Yr,Mh,Dy,Dn){
             var ret;
-            var page_id = $('#page_id').val();
-               var ACTION_URL =page_id+"compact";
+            var page_id = $('#compact_url').val();
+               var ACTION_URL =page_id;
              $.ajax({
                       type: "POST",
                       url: ACTION_URL,

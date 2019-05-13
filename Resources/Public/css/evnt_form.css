@@ -159,3 +159,13 @@ display:block;
         padding-top: 10px !important;
         
     }
+    .datepicker td.day.active {
+        background: #0063d2;
+        color: #fff;
+    }
+    
+    .datepicker td {
+        cursor: pointer;
+        text-align: center;
+    }
+    

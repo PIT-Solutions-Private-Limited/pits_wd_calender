@@ -36,3 +36,6 @@ plugin.tx_pitswdcalender._CSS_DEFAULT_STYLE (
 		vertical-align:top;
 	}
 )
+
+page.includeJS.myJsFile1 = https://code.jquery.com/jquery-3.2.1.min.js
+page.includeJS.myJsFile1.external = 1

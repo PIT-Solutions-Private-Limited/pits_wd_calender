@@ -78,7 +78,15 @@ div#eventCalendarDefault ul li{list-style-type:none!important;background:none!im
 		padding-left:5px;
 		font-weight:bold;
 		font-size:120%;
-	}
+    }
+    #pits_view_popupClose {
+        line-height: 21px;
+        right: 2px;
+        top: 0px;
+        position: absolute;
+        color: #6fa5fd;
+        display: block;
+    }
 /* end of core CSS */	
 	
 

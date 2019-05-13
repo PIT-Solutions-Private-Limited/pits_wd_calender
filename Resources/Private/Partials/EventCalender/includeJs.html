@@ -1,55 +1,49 @@
 <f:if condition="{mapValues.compact}">
- 	<f:then>
-             <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script> -->
-             <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-             <script src="{realPath}jquery.min.js" type="text/javascript"></script>
- 	     <script src="{realPath}jquery.eventCalendar.js" type="text/javascript"></script>
-             
-             <script src="{realPath}popup.js" type="text/javascript"></script>
-             <script type="text/javascript">
-               $(document).ready(function() {
-	           $("#eventCalendarDefault").eventCalendar({eventsjson: ''});
-               });
-             function viewMapEvent(uid){
-                   centerPopup();
-                   loadPopup();
-                   var ACTION_URL = $('#page_id').val();
-                      $.ajax({
-                          type: "POST",
-                          url: ACTION_URL+'show',
-                          data: { formValues: uid},
-                          success: function (data) {
-                               $('#detailed_view').html(data);
-                           }
-                      })
+    <f:then>
+        <script src="{realPath}jquery.min.js" type="text/javascript"></script>
+        <script src="{realPath}jquery.eventCalendar.js" type="text/javascript"></script>
 
-                   $('#general_pp').slideUp(100);
-                   $('#detailed_view').slideDown(100);        
-             }
-             </script>
+        <script src="{realPath}popup.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#eventCalendarDefault").eventCalendar({eventsjson: ''});
+            });
+            function viewMapEvent(uid) {
+                centerPopup();
+                loadPopup();
+                var ACTION_URL = $('#event_show_url').val();
+                $.ajax({
+                    type: "POST",
+                    url: ACTION_URL,
+                    data: {'eventId': uid},
+                    success: function (data) {
+                        $('#detailed_view').html(data);
+                    }
+                })
 
- 	</f:then>
- 
- 	<f:else>
-                <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script> -->
-                <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
- 		<script src="http://maps.googleapis.com/maps/api/js?key={mapValues.apiKey}"></script>
-                <script type="text/javascript" src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
-                <script src="{realPath}event_form.js" type="text/javascript"></script> 
-                <script src="{realPath}jquery-ui-timepicker-addon.js" type="text/javascript"></script> 
-                <script src="{realPath}popup.js" type="text/javascript"></script>
-                <script src="{realPath}google_map_custom.js" type="text/javascript"></script>
-                <script src="{realPath}google_map_actions.js" type="text/javascript"></script>
-                <script type="text/javascript">
-                    var text        = "{mapValues.events}";
-                    var def_lat     = "{mapValues.lat}";
-                    var def_log     = "{mapValues.log}";
-                    var marker_view = "{mapValues.markerView}";
-                </script>
+                $('#general_pp').slideUp(100);
+                $('#detailed_view').slideDown(100);
+            }
+        </script>
+
+    </f:then>
+
+    <f:else>
+        <script src="{realPath}moment.min.js" type="text/javascript"></script>
+        <script src="{realPath}bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?key={mapValues.apiKey}"></script>
+        <script src="{realPath}event_form.js" type="text/javascript"></script> 
+        <script src="{realPath}popup.js" type="text/javascript"></script>
+        <script src="{realPath}google_map_custom.js" type="text/javascript"></script>
+        <script src="{realPath}google_map_actions.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            var text = "{mapValues.events}";
+            var def_lat = "{mapValues.lat}";
+            var def_log = "{mapValues.log}";
+            var marker_view = "{mapValues.markerView}";
+        </script>
 
 
- 	</f:else>
- </f:if>
-
-
-
+    </f:else>
+</f:if>

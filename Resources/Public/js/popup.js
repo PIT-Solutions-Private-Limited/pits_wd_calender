@@ -24,8 +24,8 @@ function loadPopup(){
 //disabling popup with jQuery magic!
 function disablePopup(){
     
-        $("#newEvent").dataFormReset();
-        $('.evt_error').html('');
+    $('#newEvent')[0].reset();
+    $('.evt_error').html('');
 	//disables popup only if it is enabled
 	if(popupStatus==1){
 		$("#pits_gmap_backgroundPopup").fadeOut("slow");
@@ -73,7 +73,16 @@ $(document).ready(function(){
 		if(e.keyCode==27 && popupStatus==1){
 			disablePopup();
 		}
-	});
+    });
+    
+    $('#pits_view_popupClose').click( function(){
+        if(popupStatus==1){
+            $("#pits_gmap_backgroundPopup").fadeOut("slow");
+            $("#pits_gmap_popup").fadeOut("slow");
+            popupStatus = 0;
+    
+        }
+    });
 
 });
 
