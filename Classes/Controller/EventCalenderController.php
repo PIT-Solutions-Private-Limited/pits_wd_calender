@@ -1,5 +1,5 @@
 <?php
-namespace Pits\PitsWdCalender\Controller;
+namespace PITS\PitsWdCalender\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -41,11 +41,17 @@ class EventCalenderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
     /**
      * eventCalenderRepository
      *
-     * @var \Pits\PitsWdCalender\Domain\Repository\EventCalenderRepository
+     * @var \PITS\PitsWdCalender\Domain\Repository\EventCalenderRepository
      * @inject
      */
-    protected $eventCalenderRepository;
-    protected $eventCalenderModel;
+    protected $eventCalenderRepository = null;
+
+    /**
+     * eventCaltenderModel
+     *
+     * @var \PITS\PitsWdCalender\Domain\Model\EventCalender
+     */
+    protected $eventCalenderModel = null;
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
@@ -53,60 +59,76 @@ class EventCalenderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
      */
     protected $persistenceManager;
 
+    /**
+     * constructor function
+     */
     public function __construct()
     {
-        $this->eventCalenderModel = new \Pits\PitsWdCalender\Domain\Model\EventCalender();
+        $this->eventCalenderModel = new \PITS\PitsWdCalender\Domain\Model\EventCalender();
     }
 
     /**
      * action list
      *
      * @return void
-     * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
+     * @param \PITS\PitsWdCalender\Domain\Model\EventCalender
      */
     public function listAction()
     {
         $flexformValues = $this->settings;
         $view_type = $flexformValues['view_select'];
         $events = $this->eventCalenderRepository->getAllEvents($GLOBALS['TSFE']->id);
+        $location = explode(',', $flexformValues['def_marker_pos']);
+
         switch ($view_type) {
             case 1:
                 $mapData['compact'] = 1;
                 break;
             case 2:
-                $location = explode(',', $flexformValues['def_marker_pos']);
-                $location_lat = $location[0];
-                $location_log = $location[1];
-                $mapData['apiKey'] = $flexformValues['api_key'];
-                $mapData['map_width'] = $flexformValues['map_width'];
-                $mapData['map_height'] = $flexformValues['map_height'];
-                $mapData['lat'] = $location_lat;
-                $mapData['log'] = $location_log;
-                $mapData['events'] = $events;
-                $mapData['markerView'] = TRUE;
+                $mapData = [
+                    'apiKey' => isset($flexformValues['api_key']) ? $flexformValues['api_key'] : null,
+                    'map_width' => $flexformValues['map_width'],
+                    'map_height' => $flexformValues['map_height'],
+                    'lat' => isset($location[0]) ? $location[0] : null,
+                    'log' => isset($location[1]) ? $location[1] : null,
+                    'events' => $events,
+                    'markerView' => TRUE
+                ];
                 break;
             case 3:
-                $location = explode(',', $flexformValues['def_marker_pos']);
-                $mapData['map_width'] = $flexformValues['map_width'];
-                $mapData['map_height'] = $flexformValues['map_height'];
-                $location_lat = $location[0];
-                $location_log = $location[1];
-                $mapData['apiKey'] = $flexformValues['api_key'];
-                $mapData['lat'] = $location_lat;
-                $mapData['log'] = $location_log;
-                $mapData['events'] = $events;
-                $mapData['markerView'] = FALSE;
+                $mapData = [
+                    'apiKey' => isset($flexformValues['api_key']) ? $flexformValues['api_key'] : null,
+                    'map_width' => $flexformValues['map_width'],
+                    'map_height' => $flexformValues['map_height'],
+                    'lat' => isset($location[0]) ? $location[0] : null,
+                    'log' => isset($location[1]) ? $location[1] : null,
+                    'events' => $events,
+                    'markerView' => FALSE
+                ];
                 break;
         }
-        $this->view->assign('events', html_entity_decode($events));
-        $this->view->assign('mapData', $mapData);
-        $this->view->assign('extensionPathJs', \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('pits_wd_calender') . 'Resources/Public/js/');
-        $this->view->assign('extensionPathCss', \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('pits_wd_calender') . 'Resources/Public/css/');
+        $this->view->assign(
+            'events', 
+            html_entity_decode($events)
+        );
+        $this->view->assign(
+            'mapData', 
+            $mapData
+        );
+        $this->view->assign(
+            'extensionPathJs', 
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('pits_wd_calender') . 'Resources/Public/js/'
+        );
+        $this->view->assign(
+            'extensionPathCss', 
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('pits_wd_calender') . 'Resources/Public/css/'
+        );
     }
 
     /**
      * action show
-     * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
+     * 
+     * @param \PITS\PitsWdCalender\Domain\Model\EventCalender
      * @return void
      */
     public function showAction()
@@ -124,7 +146,7 @@ class EventCalenderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 
     /**
      * action new
-     * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
+     * @param \PITS\PitsWdCalender\Domain\Model\EventCalender
      * @return void
      */
     public function compactAction()
@@ -136,10 +158,10 @@ class EventCalenderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 
     /**
      * action create
-     * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
+     * @param \PITS\PitsWdCalender\Domain\Model\EventCalender
      * @return void
      */
-    public function createAction(\Pits\PitsWdCalender\Domain\Model\EventCalender $newEventCalender)
+    public function createAction(\PITS\PitsWdCalender\Domain\Model\EventCalender $newEventCalender)
     {
         $request = $this->request->getArguments();
         $lat_long = $request['evt_lat'] . ';' . $request['evt_long'] . ';' . $request['evt_loc'];
@@ -157,20 +179,20 @@ class EventCalenderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 
     /**
      * action edit
-     * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
+     * @param \PITS\PitsWdCalender\Domain\Model\EventCalender
      * @return void
      */
-    public function editAction(\Pits\PitsWdCalender\Domain\Model\EventCalender $eventCalender)
+    public function editAction(\PITS\PitsWdCalender\Domain\Model\EventCalender $eventCalender)
     {
         $this->view->assign('eventCalender', $eventCalender);
     }
 
     /**
      * action update
-     * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
+     * @param \PITS\PitsWdCalender\Domain\Model\EventCalender
      * @return void
      */
-    public function updateAction(\Pits\PitsWdCalender\Domain\Model\EventCalender $eventCalender)
+    public function updateAction(\PITS\PitsWdCalender\Domain\Model\EventCalender $eventCalender)
     {
         $this->eventCalenderRepository->update($eventCalender);
         $this->flashMessageContainer->add('Your EventCalender was updated.');
@@ -179,10 +201,10 @@ class EventCalenderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 
     /**
      * action delete
-     * @param \Pits\PitsWdCalender\Domain\Model\EventCalender
+     * @param \PITS\PitsWdCalender\Domain\Model\EventCalender
      * @return void
      */
-    public function deleteAction(\Pits\PitsWdCalender\Domain\Model\EventCalender $eventCalender)
+    public function deleteAction(\PITS\PitsWdCalender\Domain\Model\EventCalender $eventCalender)
     {
         $this->eventCalenderRepository->remove($eventCalender);
         $this->flashMessageContainer->add('Your EventCalender was removed.');

@@ -1,5 +1,5 @@
 <?php
-namespace Pits\PitsWdCalender\Controller\Wizard;
+namespace PITS\PitsWdCalender\Controller\Wizard;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -127,7 +127,6 @@ class GooglepickerController extends AbstractWizardController
         parent::__construct();
         $this->getLanguageService()->includeLLFile('EXT:pits_wd_calender/locallang_wizard.xml');
         $GLOBALS['SOBE'] = $this;
-
         $this->init();
     }
 
@@ -138,6 +137,7 @@ class GooglepickerController extends AbstractWizardController
     {
         // Setting GET vars (used in frameset script):
         $this->wizardParameters = GeneralUtility::_GP('P');
+
         // Setting GET vars (used in colorpicker script):
         $this->locationValue = GeneralUtility::_GP('currentValue');
         $this->fieldChangeFunc = GeneralUtility::_GP('fieldChangeFunc');
@@ -154,7 +154,6 @@ class GooglepickerController extends AbstractWizardController
             unset($fieldChangeFuncArr['alert']);
             foreach ($fieldChangeFuncArr as $v) {
                 $update[] = 'parent.opener.' . $v;
-                
             }
         }
             

@@ -1,5 +1,5 @@
 <?php
-namespace Pits\PitsWdCalender\Domain\Model;
+namespace PITS\PitsWdCalender\Domain\Model;
 /***************************************************************
  *  Copyright notice
  *

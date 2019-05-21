@@ -181,7 +181,7 @@ return array(
 			'label' => 'LLL:EXT:pits_wd_calender/Resources/Private/Language/locallang.xml:tx_pitswdcalender.wd_lat_long',	
 			'config' => Array (
 				'type' => 'input',
-				//'userFunc' => \Pits\PitsWdCalender\Userfunc\GooglePicker::class . '->renderForm',
+				//'userFunc' => \PITS\PitsWdCalender\Userfunc\GooglePicker::class . '->renderForm',
 				'size' => '80',
 				'eval' => 'trim',
 				'wizards' => Array (
